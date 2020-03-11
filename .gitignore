@@ -1,0 +1,7 @@
+# Ignore Jetbrains IDE files
+.idea/
+obs-frame.iml
+
+# Ignore irrelevant Node generated files
+node_modules/
+package-lock.json
