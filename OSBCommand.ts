@@ -1,4 +1,4 @@
-import {Message} from "discord.js";
+import {Message, PartialMessage} from "discord.js";
 import OSBClient from "./OSBClient";
 
 export default class OSBCommand {
@@ -14,8 +14,8 @@ export default class OSBCommand {
         this.client = options.client;
     }
 
-    public execute(message: Message, ...args: Array<string>): Promise<any> {
-        throw `Command '${name}' does not override "execute()"`;
+    public execute(message: Message | PartialMessage, ...args: Array<string>): Promise<any> {
+        return Promise.reject(`Command '${name}' does not override "execute()"`);
     }
 
 }

@@ -1,6 +1,5 @@
 export default class OSBConsole {
 
-    public static time: string = `[${new Date().toLocaleString()}] `;
     public static COLORS = {
         Reset: '\u001b[0m',
         Black: '\u001b[30m',
@@ -22,18 +21,19 @@ export default class OSBConsole {
     };
 
     public static log(message: any) {
-        console.log(`${OSBConsole.COLORS.Reset}${OSBConsole.time}${message}${OSBConsole.COLORS.Reset}`)
+        const time: string = `[${new Date().toLocaleString()}] `;
+        console.log(`${OSBConsole.COLORS.Reset}${time}${message}${OSBConsole.COLORS.Reset}`)
     }
 
     public static warning(message: any) {
-        console.log(`${OSBConsole.COLORS.Yellow}${OSBConsole.time}${message}${OSBConsole.COLORS.Reset}`)
+        OSBConsole.log(`${OSBConsole.COLORS.Yellow}${message}`)
     }
 
     public static error(message: any) {
-        console.log(`${OSBConsole.COLORS.Red}${OSBConsole.time}${message}${OSBConsole.COLORS.Reset}`)
+        OSBConsole.log(`${OSBConsole.COLORS.Red}${message}`)
     }
 
     public static info(message: any) {
-        console.log(`${OSBConsole.COLORS.Blue}${OSBConsole.time}${message}${OSBConsole.COLORS.Reset}`)
+        OSBConsole.log(`${OSBConsole.COLORS.Blue}${message}`)
     }
 }
